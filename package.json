@@ -1,6 +1,10 @@
 {
   "name": "book-management-api",
   "version": "1.0.0",
+  "main": "app.ts",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node dist/app.js",
     "dev": "nodemon --exec npx ts-node app.ts",

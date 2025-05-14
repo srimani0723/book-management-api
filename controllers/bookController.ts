@@ -10,6 +10,7 @@ export const getAllBooks = (
     const books = bookService.allBooks();
     if (books.length === 0) {
       res.status(404).json({ message: "no books found" });
+      return;
     }
     res.status(200).json(books);
   } catch (err) {
@@ -58,7 +59,7 @@ export const deleteBook = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const deleted = bookService.deleteBook(req.params.id);
+  const deleted = await bookService.deleteBook(req.params.id);
 
   if (!deleted) {
     res.status(404).json({ message: "Book not found" });
