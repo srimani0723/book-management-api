@@ -9,8 +9,6 @@ dotenv.config();
 const app = express();
 export default app; // for the testing with jest
 
-console.log("Its working...");
-
 app.use(express.json());
 app.use(logger);
 app.use("/books", bookRoutes);
