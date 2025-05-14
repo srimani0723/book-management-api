@@ -1,6 +1,6 @@
 {
-  "watch": ["app.ts", "controllers", "routes", "services", "middleware"],
+  "watch": ["index.ts", "controllers", "routes", "services", "middleware"],
   "ext": "ts",
   "ignore": ["node_modules"],
-  "exec": "node --loader ts-node/esm app.ts"
+  "exec": "node --loader ts-node/esm index.ts"
 }

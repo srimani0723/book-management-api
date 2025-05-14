@@ -1,13 +1,13 @@
 {
   "name": "book-management-api",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.ts",
   "engines": {
     "node": "22.x"
   },
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "nodemon --exec npx ts-node app.ts",
+    "dev": "nodemon --exec npx ts-node index.ts",
     "build": "tsc",
     "test": "jest",
     "clean": "rm -rf dist"
@@ -24,6 +24,7 @@
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
     "@types/morgan": "^1.9.9",
     "@types/multer": "^1.4.12",
     "@types/node": "^18.19.100",
