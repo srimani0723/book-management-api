@@ -1,7 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
-import { Book } from "../models/bookModel";
-
-let books: Book[] = [];
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.bulkCreateBooks = exports.deleteBook = exports.updateBook = exports.createBook = exports.bookById = exports.allBooks = void 0;
+const uuid_1 = require("uuid");
+let books = [];
 // [
 //   {
 //     id: "1",
@@ -64,38 +65,33 @@ let books: Book[] = [];
 //     publishedYear: 2010,
 //   },
 // ];
-
-export const allBooks = (): Book[] => books;
-
-export const bookById = (id: string) => books.find((book) => book.id === id);
-
-export const createBook = (
-  title: string,
-  author: string,
-  publishedYear: number
-): Book => {
-  const newBook: Book = { id: uuidv4(), title, author, publishedYear };
-  books.push(newBook);
-  return newBook;
+const allBooks = () => books;
+exports.allBooks = allBooks;
+const bookById = (id) => books.find((book) => book.id === id);
+exports.bookById = bookById;
+const createBook = (title, author, publishedYear) => {
+    const newBook = { id: (0, uuid_1.v4)(), title, author, publishedYear };
+    books.push(newBook);
+    return newBook;
 };
-
-export const updateBook = (
-  id: string,
-  updatedFields: Partial<Book>
-): Book | null => {
-  const index = books.findIndex((book) => book.id === id);
-  if (index === -1) return null;
-  books[index] = { ...books[index], ...updatedFields };
-  return books[index];
+exports.createBook = createBook;
+const updateBook = (id, updatedFields) => {
+    const index = books.findIndex((book) => book.id === id);
+    if (index === -1)
+        return null;
+    books[index] = { ...books[index], ...updatedFields };
+    return books[index];
 };
-
-export const deleteBook = (id: string): boolean => {
-  const index = books.findIndex((book) => book.id === id);
-  if (index === -1) return false;
-  books.splice(index, 1);
-  return true;
+exports.updateBook = updateBook;
+const deleteBook = (id) => {
+    const index = books.findIndex((book) => book.id === id);
+    if (index === -1)
+        return false;
+    books.splice(index, 1);
+    return true;
 };
-
-export const bulkCreateBooks = (bookList: Book[]): void => {
-  books = [...books, ...bookList];
+exports.deleteBook = deleteBook;
+const bulkCreateBooks = (bookList) => {
+    books = [...books, ...bookList];
 };
+exports.bulkCreateBooks = bulkCreateBooks;
