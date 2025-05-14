@@ -4,3 +4,4 @@ logs
 dist
 package-lock.json
 uploads
+coverage
