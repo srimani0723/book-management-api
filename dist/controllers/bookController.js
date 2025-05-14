@@ -40,6 +40,7 @@ const getAllBooks = (req, res, next) => {
         const books = bookService.allBooks();
         if (books.length === 0) {
             res.status(404).json({ message: "no books found" });
+            return;
         }
         res.status(200).json(books);
     }
@@ -78,7 +79,7 @@ const updateBook = async (req, res) => {
 };
 exports.updateBook = updateBook;
 const deleteBook = async (req, res) => {
-    const deleted = bookService.deleteBook(req.params.id);
+    const deleted = await bookService.deleteBook(req.params.id);
     if (!deleted) {
         res.status(404).json({ message: "Book not found" });
         return;
